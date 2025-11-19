@@ -21,6 +21,13 @@
                 <Setter Property="Margin" Value="8,16,8,8"/>
                 <Setter Property="FontWeight" Value="SemiBold"/>
             </Style>
+
+            <!-- Button Styles -->
+            <Style x:Key="PrimaryButton" TargetType="Button" BasedOn="{StaticResource MaterialDesignRaisedButton}">
+                <Setter Property="Margin" Value="4"/>
+                <Setter Property="Padding" Value="16,8"/>
+                <Setter Property="Height" Value="36"/>
+            </Style>
         </ResourceDictionary>
     </Application.Resources>
 </Application>
