@@ -1,0 +1,30 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "FastForm (Debug)",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build",
+      "program": "${workspaceFolder}/FastForm/bin/Debug/net8.0-windows/FastForm.dll",
+      "args": [],
+      "cwd": "${workspaceFolder}/FastForm",
+      "console": "internalConsole",
+      "stopAtEntry": false,
+      "env": {
+        "DOTNET_ENVIRONMENT": "Development"
+      }
+    },
+    {
+      "name": "FastForm (Rebuild)",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "rebuild",
+      "program": "${workspaceFolder}/FastForm/bin/Debug/net8.0-windows/FastForm.dll",
+      "args": [],
+      "cwd": "${workspaceFolder}/FastForm",
+      "console": "internalConsole",
+      "stopAtEntry": false
+    }
+  ]
+}

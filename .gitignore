@@ -41,8 +41,10 @@ Desktop.ini
 # Recycle Bin used on file shares
 $RECYCLE.BIN/
 
-# VS Code
-.vscode/
+# VS Code (only ignore user-specific settings)
+.vscode/settings.json
+.vscode/*.code-workspace
+.vscode/.history/
 
 # Rider
 .idea/
