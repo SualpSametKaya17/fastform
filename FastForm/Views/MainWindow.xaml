@@ -25,13 +25,13 @@
                     </StackPanel>
 
                     <StackPanel Orientation="Horizontal" DockPanel.Dock="Right" HorizontalAlignment="Right">
-                        <Button Style="{StaticResource ToolbarIconButton}" ToolTip="Bildirimler">
+                        <Button Style="{StaticResource MaterialDesignIconButton}" ToolTip="Bildirimler">
                             <materialDesign:PackIcon Kind="Bell" Width="20" Height="20"/>
                         </Button>
-                        <Button Style="{StaticResource ToolbarIconButton}" ToolTip="Ayarlar">
+                        <Button Style="{StaticResource MaterialDesignIconButton}" ToolTip="Ayarlar">
                             <materialDesign:PackIcon Kind="Settings" Width="20" Height="20"/>
                         </Button>
-                        <Button Style="{StaticResource ToolbarIconButton}" ToolTip="Kullanıcı">
+                        <Button Style="{StaticResource MaterialDesignIconButton}" ToolTip="Kullanıcı">
                             <materialDesign:PackIcon Kind="Account" Width="20" Height="20"/>
                         </Button>
                     </StackPanel>
@@ -58,7 +58,7 @@
                     <ScrollViewer VerticalScrollBarVisibility="Auto">
                         <StackPanel Margin="0,16">
                             <!-- Dashboard -->
-                            <Button Style="{StaticResource NavigationButton}"
+                            <Button Style="{StaticResource MaterialDesignFlatButton}"
                                     Height="50" HorizontalContentAlignment="Left"
                                     Command="{Binding NavigateToDashboardCommand}">
                                 <StackPanel Orientation="Horizontal" Margin="16,0">
@@ -68,7 +68,7 @@
                             </Button>
 
                             <!-- Templates -->
-                            <Button Style="{StaticResource NavigationButton}"
+                            <Button Style="{StaticResource MaterialDesignFlatButton}"
                                     Height="50" HorizontalContentAlignment="Left"
                                     Command="{Binding NavigateToTemplatesCommand}">
                                 <StackPanel Orientation="Horizontal" Margin="16,0">
@@ -78,7 +78,7 @@
                             </Button>
 
                             <!-- Forms -->
-                            <Button Style="{StaticResource NavigationButton}"
+                            <Button Style="{StaticResource MaterialDesignFlatButton}"
                                     Height="50" HorizontalContentAlignment="Left"
                                     Command="{Binding NavigateToFormsCommand}">
                                 <StackPanel Orientation="Horizontal" Margin="16,0">
@@ -90,7 +90,7 @@
                             <Separator Margin="16,8"/>
 
                             <!-- New Template -->
-                            <Button Style="{StaticResource NavigationButton}"
+                            <Button Style="{StaticResource MaterialDesignFlatButton}"
                                     Height="50" HorizontalContentAlignment="Left">
                                 <StackPanel Orientation="Horizontal" Margin="16,0">
                                     <materialDesign:PackIcon Kind="FilePlus" Width="24" Height="24" VerticalAlignment="Center"/>
@@ -99,7 +99,7 @@
                             </Button>
 
                             <!-- New Form -->
-                            <Button Style="{StaticResource NavigationButton}"
+                            <Button Style="{StaticResource MaterialDesignFlatButton}"
                                     Height="50" HorizontalContentAlignment="Left">
                                 <StackPanel Orientation="Horizontal" Margin="16,0">
                                     <materialDesign:PackIcon Kind="FileDocumentPlus" Width="24" Height="24" VerticalAlignment="Center"/>
@@ -110,7 +110,7 @@
                             <Separator Margin="16,8"/>
 
                             <!-- Reports -->
-                            <Button Style="{StaticResource NavigationButton}"
+                            <Button Style="{StaticResource MaterialDesignFlatButton}"
                                     Height="50" HorizontalContentAlignment="Left">
                                 <StackPanel Orientation="Horizontal" Margin="16,0">
                                     <materialDesign:PackIcon Kind="ChartBar" Width="24" Height="24" VerticalAlignment="Center"/>
@@ -119,7 +119,7 @@
                             </Button>
 
                             <!-- Users -->
-                            <Button Style="{StaticResource NavigationButton}"
+                            <Button Style="{StaticResource MaterialDesignFlatButton}"
                                     Height="50" HorizontalContentAlignment="Left">
                                 <StackPanel Orientation="Horizontal" Margin="16,0">
                                     <materialDesign:PackIcon Kind="AccountMultiple" Width="24" Height="24" VerticalAlignment="Center"/>
@@ -128,7 +128,7 @@
                             </Button>
 
                             <!-- Settings -->
-                            <Button Style="{StaticResource NavigationButton}"
+                            <Button Style="{StaticResource MaterialDesignFlatButton}"
                                     Height="50" HorizontalContentAlignment="Left"
                                     Command="{Binding NavigateToSettingsCommand}">
                                 <StackPanel Orientation="Horizontal" Margin="16,0">
@@ -140,7 +140,7 @@
                             <Separator Margin="16,8"/>
 
                             <!-- Exit -->
-                            <Button Style="{StaticResource NavigationButton}"
+                            <Button Style="{StaticResource MaterialDesignFlatButton}"
                                     Height="50" HorizontalContentAlignment="Left"
                                     Command="{Binding ExitApplicationCommand}">
                                 <StackPanel Orientation="Horizontal" Margin="16,0">
