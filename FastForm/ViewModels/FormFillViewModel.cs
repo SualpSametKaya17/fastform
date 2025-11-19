@@ -41,7 +41,7 @@ namespace FastForm.ViewModels
             try
             {
                 CurrentInstance = await _formDataService.GetInstanceByIdAsync(instanceId);
-                if (CurrentInstance != null)
+                if (CurrentInstance?.FormTemplate != null)
                 {
                     CurrentTemplate = CurrentInstance.FormTemplate;
                     Fields = new ObservableCollection<FieldDefinition>(CurrentTemplate.FieldDefinitions);
@@ -82,8 +82,8 @@ namespace FastForm.ViewModels
             }
         }
 
-        [RelayCommand]
-        private async Task SaveFieldValueAsync(FieldDefinition field, string value)
+        // Not a RelayCommand - called directly from code-behind or data binding
+        public async Task SaveFieldValueAsync(FieldDefinition field, string value)
         {
             if (CurrentInstance == null) return;
 
