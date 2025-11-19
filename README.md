@@ -60,38 +60,45 @@ Modern, kullanıcı dostu masaüstü form doldurma ve yönetim sistemi.
 
 ## Teknolojiler
 
-- **Framework:** .NET 6.0 WPF
-- **UI:** MaterialDesignThemes
+- **Framework:** .NET 8.0 WPF
+- **UI:** MaterialDesignThemes 5.1
 - **Database:** Microsoft SQL Server
-- **ORM:** Entity Framework Core 7
+- **ORM:** Entity Framework Core 8.0
 - **MVVM:** CommunityToolkit.Mvvm
-- **Image Processing:** SixLabors.ImageSharp
-- **Logging:** Serilog
+- **Image Processing:** SixLabors.ImageSharp 3.1.5
+- **Logging:** Serilog 4.1
 - **Serialization:** Newtonsoft.Json
 
 ## Kurulum
 
 ### Gereksinimler
 
-1. **.NET 6.0 SDK veya üzeri**
-   - [Download .NET](https://dotnet.microsoft.com/download)
+1. **.NET 8.0 SDK veya üzeri**
+   - [Download .NET 8.0](https://dotnet.microsoft.com/download/dotnet/8.0)
 
 2. **Microsoft SQL Server**
    - SQL Server 2019 veya üzeri
-   - SQL Server LocalDB (geliştirme için)
+   - SQL Server LocalDB (geliştirme için - önerilen)
    - SQL Server Express (ücretsiz)
 
-3. **Visual Studio 2022** (önerilen)
-   - Community Edition veya üzeri
-   - Workload: ".NET desktop development"
+3. **IDE** (birini seçin)
+   - **Visual Studio 2022** (v17.8+)
+     - Community Edition veya üzeri
+     - Workload: ".NET desktop development"
+   - **Visual Studio Code**
+     - C# Dev Kit extension
+     - .NET Extension Pack
+     - Detaylar: [VS_CODE_SETUP.md](VS_CODE_SETUP.md)
 
 ### Adımlar
 
 1. **Projeyi klonlayın**
    ```bash
-   git clone https://github.com/yourusername/fastform.git
+   git clone https://github.com/SualpSametKaya17/fastform.git
    cd fastform
    ```
+
+   **VS Code kullanıyorsanız:** [VS_CODE_SETUP.md](VS_CODE_SETUP.md) dosyasını okuyun.
 
 2. **Veritabanını oluşturun**
 
