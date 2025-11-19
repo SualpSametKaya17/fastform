@@ -1,10 +1,5 @@
 using FastForm.Data;
 using Serilog;
-using SixLabors.ImageSharp;
-using SixLabors.ImageSharp.Processing;
-using SixLabors.ImageSharp.Drawing.Processing;
-using SixLabors.Fonts;
-using SixLabors.ImageSharp.PixelFormats;
 using Microsoft.EntityFrameworkCore;
 
 namespace FastForm.Services
@@ -56,68 +51,13 @@ namespace FastForm.Services
                 if (template == null || template.ImageData == null)
                     throw new Exception("Form template or image data not found");
 
-                // Load base image
-                using var baseImage = Image.Load<Rgba32>(template.ImageData);
+                // TODO: Implement actual image processing with SkiaSharp or System.Drawing
+                // For now, return the original template image without field overlays
+                Log.Warning("Export feature is placeholder - returning template image without field values overlaid");
+                Log.Information("To implement: Use SkiaSharp or System.Drawing to overlay field values on template");
 
-                // Draw field values on image
-                foreach (var fieldValue in instance.FieldValues)
-                {
-                    var field = fieldValue.FieldDefinition;
-                    if (!field.IsVisible || string.IsNullOrEmpty(fieldValue.Value))
-                        continue;
-
-                    try
-                    {
-                        // Parse font properties
-                        var fontSize = (float)field.FontSize;
-                        var fontFamily = field.FontFamily;
-
-                        // For now, use a basic system font
-                        // In production, you'd load custom fonts
-                        var font = SystemFonts.CreateFont(fontFamily, fontSize,
-                            field.IsBold ? FontStyle.Bold :
-                            field.IsItalic ? FontStyle.Italic :
-                            FontStyle.Regular);
-
-                        var color = ParseColor(field.FontColor);
-                        var textOptions = new RichTextOptions(font)
-                        {
-                            Origin = new PointF((float)field.X, (float)field.Y),
-                            HorizontalAlignment = ParseHorizontalAlignment(field.TextAlignment),
-                            VerticalAlignment = ParseVerticalAlignment(field.VerticalAlignment)
-                        };
-
-                        baseImage.Mutate(ctx => ctx.DrawText(textOptions, fieldValue.Value, color));
-                    }
-                    catch (Exception ex)
-                    {
-                        Log.Warning(ex, "Error drawing field: {FieldName}", field.FieldName);
-                    }
-                }
-
-                // Convert to requested format
-                using var memoryStream = new MemoryStream();
-                switch (format)
-                {
-                    case ExportFormat.PNG:
-                        await baseImage.SaveAsPngAsync(memoryStream);
-                        break;
-                    case ExportFormat.JPEG:
-                        await baseImage.SaveAsJpegAsync(memoryStream);
-                        break;
-                    case ExportFormat.PDF:
-                        // For PDF, we'd use a library like QuestPDF or PdfSharp
-                        // For now, export as PNG (simplified)
-                        await baseImage.SaveAsPngAsync(memoryStream);
-                        break;
-                    case ExportFormat.DOCX:
-                        // For DOCX, we'd use a library like DocX
-                        // For now, export as PNG (simplified)
-                        await baseImage.SaveAsPngAsync(memoryStream);
-                        break;
-                }
-
-                return memoryStream.ToArray();
+                // Just return the template image for now
+                return template.ImageData;
             }
             catch (Exception ex)
             {
@@ -162,42 +102,6 @@ namespace FastForm.Services
                 Log.Error(ex, "Error in batch export");
                 throw;
             }
-        }
-
-        private static Color ParseColor(string colorString)
-        {
-            try
-            {
-                if (colorString.StartsWith("#"))
-                {
-                    return Color.ParseHex(colorString);
-                }
-                return Color.Black;
-            }
-            catch
-            {
-                return Color.Black;
-            }
-        }
-
-        private static HorizontalAlignment ParseHorizontalAlignment(string alignment)
-        {
-            return alignment?.ToLower() switch
-            {
-                "center" => HorizontalAlignment.Center,
-                "right" => HorizontalAlignment.Right,
-                _ => HorizontalAlignment.Left
-            };
-        }
-
-        private static VerticalAlignment ParseVerticalAlignment(string alignment)
-        {
-            return alignment?.ToLower() switch
-            {
-                "middle" => VerticalAlignment.Center,
-                "bottom" => VerticalAlignment.Bottom,
-                _ => VerticalAlignment.Top
-            };
         }
     }
 }
